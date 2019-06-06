@@ -1,5 +1,4 @@
 function buildHTML(message){
-  if ( message.image ) {
     var html =
      `<div class="message" data-message-id=${message.id}>
         <div class="upper-message">
@@ -18,7 +17,7 @@ function buildHTML(message){
         <asset_path src=${message.image} >
       </div>`
     return html;
-  } else {
+  
     var html =
      `<div class="message" data-message-id=${message.id}>
         <div class="upper-message">
@@ -37,7 +36,7 @@ function buildHTML(message){
       </div>`
     return html;
   };
-}
+  
 $('.js-form').on('submit', function(){
 e.preventDefault();
 var formData = new FormData(this);
