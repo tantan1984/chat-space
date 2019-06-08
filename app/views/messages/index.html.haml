@@ -16,8 +16,9 @@
           %li.member
             メンバー名
       .right-header
-        .right-header__button
-          Edit
+        = link_to edit_group_path(current_user),class: "edit" do
+          .right-header__button
+            Edit
     .messages
       = render @messages
       .message
