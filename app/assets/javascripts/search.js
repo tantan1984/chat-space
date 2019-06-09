@@ -1,7 +1,7 @@
 $(function(){
 
   var search_list = $("#user-search-result");
-  var menber_list = $("#member_search_result");
+  var member_list = $("#chat-group-users");
 
   function appendUser(user) {
     var html = 
@@ -20,6 +20,7 @@ $(function(){
       <a class='user_search_remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
       </div>`
     member_list.append(html);
+
   }
 
 
@@ -59,9 +60,6 @@ $(function(){
       alert('ユーザー検索に失敗しました');
     })
   });
-});
-
-$(function() {
   $(document).on("click", '.user-search-add', function() {
     var name = $(this).attr("data-user-name");
     var user_id = $(this).attr("data-user-id");
