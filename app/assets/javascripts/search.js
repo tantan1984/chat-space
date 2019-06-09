@@ -1,7 +1,7 @@
 $(function(){
 
-  var search_list = $("#user-search-result");
-  var member_list = $("#chat-group-users");
+  // var search_list = $("#user-search-result");
+  // var member_list = $("#chat-group-users");
 
   function appendUser(user) {
     var html = 
@@ -9,7 +9,7 @@ $(function(){
       <p class="chat-group-user__name">${user.name}</p>
       <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
     </div>`
-    search_list.append(html);
+    $("#user-search-result").append(html);
   }
 
   function appendMembers(name, user_id) {
@@ -19,17 +19,17 @@ $(function(){
       <p class='chat-group-user__name'>${name}</p>
       <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
     </div>`
-    member_list.append(html);
+    $("#chat-group-users").append(html);
 
   }
 
 
-  function appendErrMsgToHTML(msg) {
+  function appendErrMsgToHTML() {
     var html = `
       <div class="chat-group-user clearfix">
-        <p class="chat-group-user__name">${ msg }</p>
+        <p class="chat-group-user__name">一致する名前がありません</p>
         </div>`
-    search_list.append(html);
+    $("#user-search-result").append(html);
   }
 
   $("#user-search-field").on("keyup", function(){
@@ -54,7 +54,7 @@ $(function(){
       }
       
       else {
-        appendErrMsgToHTML("一致する名前がありません");
+        appendErrMsgToHTML();
       }
     })
     .fail(function(){
