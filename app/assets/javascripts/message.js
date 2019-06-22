@@ -1,8 +1,9 @@
 $(function() {
   function buildHTML(message){
     var insertImage = '';
-    if (message.image_url) {
-      insertImage = `<img src="${message.image_url}">`;
+    console.log(message)
+    if (message.image) {
+      insertImage = `<img src="${message.image}">`;
     }
     var html =
       `<div class="message" data-message-id=${message.id}>
@@ -19,7 +20,7 @@ $(function() {
               ${message.content}
             </p>
           </div>
-          <asset_path src=${message.image} >
+          ${insertImage}
         </div>`
       return html;
     };
@@ -37,7 +38,6 @@ $(function() {
     contentType: false
   })
   .done(function(data){
-    console.log(data)
     var html = buildHTML(data);
     $('.messages').append(html);
     $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
@@ -63,7 +63,6 @@ $(function() {
       dataType: 'json'
     })
     .done(function(messages) {  
-      console.log(`自動更新done`)
       var insertHTML = '';
       messages.forEach(function(message){
       insertHTML = buildHTML(message);
