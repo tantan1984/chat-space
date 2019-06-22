@@ -24,7 +24,7 @@
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
       #chat-group-users
       #chat-group-user.chat-group-user.clearfix
-        %input{ name: "chat_group[user_ids][]", type: "hidden", value: "current_user.id"}/
+        %input{ name: "group[user_ids][]", type: "hidden", value: current_user.id}/
         %p.chat-group-user__name
           = current_user.name
 
