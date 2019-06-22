@@ -50,7 +50,7 @@ $(function() {
   });
 
   $(function() {
-    setInterval(reloadMessages, 500)
+    if($('.chat')[0]) setInterval(reloadMessages, 5000)  
   });   
   var reloadMessages = function(){
     var last_message_id = $('.message').last().data('message-id');
